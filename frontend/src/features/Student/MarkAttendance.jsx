@@ -42,8 +42,8 @@ const MarkAttendance = () => {
 
         const data = await response.json();
 
-        const dateNew = data.data.data.find((el) =>
-          el.attendanceDate.includes(date)
+        const dateNew = data.data.data.find(
+          (el) => el.attendanceDate.substring(0, 10) === date
         );
         if (dateNew) setMarked(true);
         else setMarked(false);
